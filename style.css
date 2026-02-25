@@ -4,18 +4,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Space+Grotesk', sans-serif; /* Same exact professional font look */
+    font-family: 'Space Grotesk', sans-serif; /* Fixed the font name string */
 }
 
 body {
     background-color: #ffffff;
+    /* Navbar fixed hone ki wajah se body par padding-top dena zaroori hai 
+       taaki content navbar ke peeche na chhup jaye */
+    padding-top: 100px; 
 }
 
 .navbar {
     width: 100%;
     padding: 20px 60px;
     background: #fff;
-    animation: fadeInDown 0.8s ease-out; /* Entrance Animation */
+    
+    /* --- Ye rahi fixes --- */
+    position: fixed;        /* Screen ke top par lock karne ke liye */
+    top: 0;                 /* Bilkul upar chipkaane ke liye */
+    left: 0;
+    z-index: 1000;          /* Sabse upar dikhne ke liye */
+    /* -------------------- */
+    
+    animation: fadeInDown 0.8s ease-out;
 }
 
 .container {
@@ -50,7 +61,7 @@ body {
 }
 
 .logo:hover .logo-icon {
-    transform: rotate(90deg); /* Subtle spin animation */
+    transform: rotate(90deg);
 }
 
 /* --- Nav Links --- */
@@ -76,7 +87,7 @@ body {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #B9FF66; /* Neon green touch for animation */
+    background-color: #B9FF66;
     transition: width 0.3s ease;
 }
 
@@ -98,7 +109,7 @@ body {
 .btn-quote:hover {
     background-color: #000;
     color: #fff;
-    transform: translateY(-2px); /* Slight lift animation */
+    transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
@@ -128,7 +139,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap:40px;
     padding: 40px 60px;
 }
 
@@ -177,7 +188,6 @@ body {
     justify-content: center;
     animation: fadeIn 1.5s ease-in;
 }
-
 .illustration-container {
     position: relative;
     width: 100%;
@@ -187,16 +197,16 @@ body {
 .main-img {
     width: 100%;
     height: auto;
-    animation: float 4s ease-in-out infinite; /* Floating Animation */
+    animation: float 4s ease-in-out infinite; Floating Animation
 }
 
 /* --- Partners Bar --- */
-.partners-bar {
+/* .partners-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 60px 60px;
-    filter: grayscale(100%); /* Same as screenshot */
+    filter: grayscale(100%); 
     opacity: 0.7;
     flex-wrap: wrap;
     gap: 30px;
@@ -205,7 +215,7 @@ body {
 .partners-bar img {
     height: 35px;
     object-fit: contain;
-}
+} */
 
 /* --- Keyframes for Animations --- */
 @keyframes slideInLeft {
@@ -283,22 +293,80 @@ body {
 }
 
 /* Card Common Styles */
+/* Card Container jo width control karega */
+.cta-container {
+    max-width: 1240px; /* Reference image ki standard width */
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
 .card {
-    border: 1px solid var(--dark);
-    border-bottom: 6px solid var(--dark); /* Wahi moti border jo image mein hai */
-    border-radius: 40px;
-    padding: 50px;
+    background-color: #F3F3F3; /* Grey background jaisa dusri pic mein hai */
+    border: 1px solid #191A23;
+    border-bottom: 6px solid #191A23; /* Dark shadow effect */
+    border-radius: 45px;
+    padding: 50px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    min-height: 300px;
+    gap: 40px;
+    
+    /* --- Height aur Width Fix --- */
+    min-height: 350px; 
+    max-width: 100%; 
+    box-sizing: border-box;
 }
 
+/* Text area ko narrow karne ke liye */
+.card-content {
+    flex: 1;
+    max-width: 500px; /* Isse text zyada phailay ga nahi */
+}
+
+.card-content h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Button styling jo pehle missing thi */
+.btn {
+    display: inline-block;
+    background-color: #191A23;
+    color: #fff;
+    padding: 20px 35px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+/* Image area fix */
+.card-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-image img {
+    max-width: 380px; /* Illustration size control */
+    height: auto;
+}
+
+/* Hover effect ko thoda smooth rakha hai */
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* Card Backgrounds */
@@ -960,3 +1028,40 @@ hr {
     background-color: #b9ff66;
     color: black;
 }
+/* Pura section control karne ke liye */
+.container {
+    max-width: 1200px; /* Isse 3 cards comfortably fit ho jayenge */
+    margin: 0 auto;    /* Page ke beech mein lane ke liye */
+    padding: 0 4%;     /* Side se space taaki page se touch na ho */
+    box-sizing: border-box;
+}
+
+/* Heading aur Paragraph ko align karne ke liye */
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Isse content left side (pehla card) se start hoga */
+    gap: 25px;
+    margin-top: 50px;           /* Cards se niche lane ke liye gap */
+    width: 100%;                /* Pura area cover karega */
+}
+
+.badge {
+    background-color: #a3ff71;  /* Screenshot wala neon green */
+    padding: 10px 20px;
+    border-radius: 10px;        /* Slightly rounded corners */
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    max-width: 500px;           /* Text ko failne se rokne ke liye */
+}
+
+
